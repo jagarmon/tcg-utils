@@ -11,6 +11,7 @@
 npm-debug.log
 yarn-error.log
 /src/backend/node_modules
+/src/backend/tcg-utils-db.sqlite
 
 # IDEs and editors
 .idea/
