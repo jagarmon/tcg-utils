@@ -1,13 +1,20 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'typography',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './typography.component.html',
   styleUrl: './typography.component.scss',
 })
 export class TypographyComponent {
-  @Input({ required: true }) text!: string;
-  @Input() color: 'standard' | 'danger' = 'standard';
-  @Input() variant: 'input' | 'small' | 'standard' | 'h1' | 'h2' = 'standard';
+  @Input({ required: true })
+  text!: string;
+  @Input()
+  color: 'black' | 'error' = 'black';
+  @Input()
+  variant: 'h1' | 'h2' | 'standard' | 'element' | 'helper' = 'standard';
+  @Input()
+  weight: 'small' | 'normal' | 'medium' | 'big' = 'normal';
 }

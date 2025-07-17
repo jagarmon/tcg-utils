@@ -1,7 +1,18 @@
-@if(variant === 'h2'){
-    <h2>{{text}}</h2>
-}@else if(variant === 'h1'){
-    <h1>{{text}}</h1>
-}@else {
-    <p [class]="variant +' '+color">{{text}}</p>
+@if(variant === 'h1'){
+<h1 [ngClass]="' h1 ' + weight + ' ' + color">
+  {{ text }}
+</h1>
+} @else if(variant === 'h2'){
+<h2 [ngClass]="' h2 ' + weight + ' ' + color">
+  {{ text }}
+</h2>
+}@else if(variant === 'element'){
+<p [ngClass]="variant + ' regular ' + color">
+  {{ text }}
+</p>
+} @else {
+<p [ngClass]="variant + ' ' + weight + ' ' + color">
+  {{ text }}
+</p>
 }
+
