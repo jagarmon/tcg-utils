@@ -27,7 +27,6 @@ module.exports = tseslint.config(
         "error",
         {
           type: "element",
-          prefix: "tcg-utils",
           style: "kebab-case",
         },
       ],

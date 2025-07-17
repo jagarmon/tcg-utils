@@ -1,0 +1,7 @@
+@if(variant === 'h2'){
+    <h2>{{text}}</h2>
+}@else if(variant === 'h1'){
+    <h1>{{text}}</h1>
+}@else {
+    <p [class]="variant +' '+color">{{text}}</p>
+}
