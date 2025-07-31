@@ -1,0 +1,62 @@
+@use '../styles/__index.scss';
+
+button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: Verdana;
+  height: 48px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 0 12px;
+
+  background-color: var(--primary-purple);
+  color: var(--secondary-text-color);
+
+  &:hover {
+    background-color: var(--secondary-purple);
+  }
+
+  &:active {
+    background-color: var(--secondary-purple);
+  }
+
+  &:disabled {
+    background-color: var(--disabled-background-color);
+    color: var(--disabled-text-color);
+    border: none;
+    cursor: default;
+  }
+
+  &:focus {
+    outline: 1px solid var(--tertiary-purple);
+  }
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.small {
+  height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.standard{
+  height: 50px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+

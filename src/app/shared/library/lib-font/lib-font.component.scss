@@ -1,4 +1,6 @@
 
+@use '../styles/__index.scss';
+
 .base-class {
   font-family: Verdana;
   letter-spacing: 0.2px;
@@ -21,20 +23,10 @@
   font-size: 14px;
   line-height: 24px;
 }
-.label {
+.element {
   @extend .base-class;
-  font-size: 12px;
-  line-height: 20px;
-}
-.button {
-  @extend .base-class;
-  font-size: 16px;
-  line-height: 20px;
-}
-.input {
-  @extend .base-class;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 16px;
 }
 .helper {
   @extend .base-class;
@@ -54,8 +46,11 @@
   font-weight: 800;
 }
 .error{
-  color: red;
+  color: var(--error-text-color);
 }
-.black{
-  color: '#1a1717'
+.default{
+  color: var(--primary-text-color);
+}
+.disabled{
+  color: var(--disabled-text-color)
 }

@@ -1,0 +1,110 @@
+@use '../styles/__index.scss';
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-text-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  text-align: left;
+}
+
+.input-textbox-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  width: 100%;
+}
+
+.input-textbox-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--primary-purple);
+}
+
+.input-textbox-container.disabled {
+  background-color: var(--quaternary-purple);
+  color: var(--disabled-text-color);
+}
+
+.input-textbox {
+  width: 100%;
+  font-family: Verdana;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  border-radius: 4px;
+  border: 1px solid var(--quaternary-purple);
+  padding: 8px 16px;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+  &::placeholder {
+    color: #7f7d80;
+  }
+  &:focus {
+    outline: 1px solid var(--primary-purple);
+  }
+  &.error {
+    border: 1px solid var(--error-text-color);
+    outline: 1px solid var(--error-text-color);
+  }
+  &:disabled {
+    background-color: var(--disabled-background-color);
+    color: var(--disabled-text-color);
+  }
+  
+}
+
+.input-assistive-text {
+  font-family: Verdana;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  margin: 0;
+  color: var(--primary-text-color);
+  
+  &-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  &.error {
+    color: var(--error-text-color);
+  } 
+}
+
+.input-icon-button {
+  display: flex;
+  position: absolute;
+  right: 2%;
+}
+
+.material-symbols-outlined {
+  width: 16.67px;
+  height: 16.67px;
+  font-size: 16.67px;
+  color: var(--primary-text-color);
+  &.error {
+    color: var(--error-text-color);
+  }
+  &.visibility-button {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    font-size: 22px;
+  }
+}

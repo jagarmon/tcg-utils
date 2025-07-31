@@ -1,1 +1,19 @@
-<p>COLLECTION WORKS</p>
+<lib-button icon="search" text="Buscar"></lib-button>
+<lib-button icon="search" text="Buscar" size="small"></lib-button>
+<lib-button icon="search" size="small" [disabled]="true"></lib-button>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+  <lib-input
+    text="FirstName"
+    placeholder="Juan"
+    [control]="formService.convertToFormControl(form.get('firstName'))"
+    [required]="true"
+    [errorMessages]="{ required: 'Please introduce a value' }" />
+  <lib-input
+    text="Lastname"
+    placeholder="López"
+    [control]="formService.convertToFormControl(form.get('lastName'))"
+    [required]="true"
+    [errorMessages]="{ required: 'Please introduce a value' }" />
+  <lib-button text="Enviar" [submit]="true"></lib-button>
+</form>

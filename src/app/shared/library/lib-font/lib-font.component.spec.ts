@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TypographyComponent } from './typography.component';
+import { LibFontComponent } from './lib-font.component';
 
 describe('TypographyComponent', () => {
-  let component: TypographyComponent;
-  let fixture: ComponentFixture<TypographyComponent>;
+  let component: LibFontComponent;
+  let fixture: ComponentFixture<LibFontComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TypographyComponent]
-    })
-    .compileComponents();
+      imports: [LibFontComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(TypographyComponent);
+    fixture = TestBed.createComponent(LibFontComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

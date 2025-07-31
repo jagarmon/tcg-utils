@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { TypographyComponent } from '../../library/typography/typography.component';
+import { LibFontComponent } from '../../library/lib-font/lib-font.component';
 
 @Component({
   selector: 'tcg-utils-navbar',
-  imports: [TypographyComponent, TypographyComponent],
+  imports: [LibFontComponent],
   standalone: true,
   templateUrl: './tcg-utils-navbar.component.html',
   styleUrl: './tcg-utils-navbar.component.scss',
