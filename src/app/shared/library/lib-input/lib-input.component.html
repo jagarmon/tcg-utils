@@ -29,7 +29,8 @@
         [attr.aria-required]="required ? 'true' : 'false'"
         [readOnly]="isReadOnly"
         [tabIndex]="isReadOnly ? -1 : 0"
-        [ngStyle]="{ cursor: isClickable ? 'pointer' : 'auto' }" />
+        [ngStyle]="{ cursor: isClickable ? 'pointer' : 'auto' }"
+        (click)="onClickInput()" />
       @if (icon) {
         <div class="input-icon-button">
           <lib-button
@@ -45,27 +46,10 @@
         </div>
       }
     </div>
-    @if (assistiveText || (control && control.invalid && control.touched)) {
-      <div class="input-assistive-text-container">
-        <span
-          class="material-symbols-outlined"
-          [ngClass]="{
-            error: control.invalid && control.touched,
-          }">
-          {{ control.invalid && control.touched ? 'dangerous' : 'info' }}
-        </span>
-        <p
-          class="input-assistive-text"
-          [ngClass]="{
-            error: control.invalid && control.touched,
-          }">
-          {{
-            control.invalid && control.touched
-              ? getErrorMessage()
-              : assistiveText
-          }}
-        </p>
-      </div>
-    }
+
+    <lib-assistive-error
+      [control]="control"
+      [assistiveText]="assistiveText"
+      [errorMessages]="errorMessages" />
   </div>
 </div>

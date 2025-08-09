@@ -1,0 +1,23 @@
+@if (
+  assistiveText ||
+  (errorMessages && control && control.invalid && control.touched)
+) {
+  <div class="assistive-text-container">
+    <span
+      class="material-symbols-outlined"
+      [ngClass]="{
+        error: control.invalid && control.touched,
+      }">
+      {{ control.invalid && control.touched ? 'dangerous' : 'info' }}
+    </span>
+    <p
+      class="assistive-text"
+      [ngClass]="{
+        error: control.invalid && control.touched,
+      }">
+      {{
+        control.invalid && control.touched ? getErrorMessage() : assistiveText
+      }}
+    </p>
+  </div>
+}

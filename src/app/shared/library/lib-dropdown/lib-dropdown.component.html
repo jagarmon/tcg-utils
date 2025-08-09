@@ -6,17 +6,24 @@
     [control]="control"
     [required]="required"
     [icon]="isDropdownOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
-    (clickIconEvent)="onClickArrow()"
+    (clickIconEvent)="onClickOpen()"
     [assistiveText]="assistiveText"
-    [errorMessages]="errorMessages"
-    [ariaLabel]="ariaLabel" />
-  @if (isDropdownOpen) {
-    <div class="suggestions-container">
-      @for (suggestion of suggestionList; track suggestion) {
-        <lib-button
-          [text]="suggestion"
-          (clickEvent)="onClickSuggestion(suggestion)" />
-      }
-    </div>
-  }
+    [ariaLabel]="ariaLabel"
+    [isReadOnly]="true"
+    (clickInputEvent)="onClickOpen()" />
+  <div class="dropdown-container">
+    <lib-assistive-error
+      [control]="control"
+      [assistiveText]="assistiveText"
+      [errorMessages]="errorMessages" />
+    @if (isDropdownOpen) {
+      <div class="suggestions-container">
+        @for (suggestion of suggestionList; track suggestion) {
+          <button class="suggestion" (click)="onClickSuggestion(suggestion)">
+            <lib-font [text]="suggestion" />
+          </button>
+        }
+      </div>
+    }
+  </div>
 </div>

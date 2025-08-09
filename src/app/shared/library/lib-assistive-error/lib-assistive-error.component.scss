@@ -1,0 +1,39 @@
+
+@use '../styles/__index.scss';
+.assistive-text {
+  font-family: Verdana;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  margin: 0;
+  color: var(--primary-text-color);
+  
+  &-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  &.error {
+    color: var(--error-text-color);
+  } 
+}
+
+
+.material-symbols-outlined {
+  width: 16.67px;
+  height: 16.67px;
+  font-size: 16.67px;
+  color: var(--primary-text-color);
+  &.error {
+    color: var(--error-text-color);
+  }
+  &.visibility-button {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    font-size: 22px;
+  }
+}

@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { LibFontComponent } from '../lib-font/lib-font.component';
 import { LibButtonComponent } from '../lib-button/lib-button.component';
+import { LibAssistiveErrorComponent } from '../lib-assistive-error/lib-assistive-error.component';
 
 @Component({
   standalone: true,
@@ -14,6 +15,7 @@ import { LibButtonComponent } from '../lib-button/lib-button.component';
     ReactiveFormsModule,
     LibFontComponent,
     LibButtonComponent,
+    LibAssistiveErrorComponent,
   ],
 })
 export class LibInputComponent {
@@ -21,11 +23,11 @@ export class LibInputComponent {
   @Input({ required: true }) text!: string;
   @Input() placeholder?: string = '';
   @Input() assistiveText?: string = '';
-  @Input() errorMessages: Record<string, string> = {};
+  @Input() errorMessages?: Record<string, string>;
   @Input() required?: boolean = false;
   @Input() control: FormControl = new FormControl({
     value: undefined,
-    disabled: true,
+    disabled: false,
   });
   @Input() ariaLabel?: string;
   @Input() icon?: string;
@@ -33,9 +35,10 @@ export class LibInputComponent {
   @Input() isClickable?: boolean;
   @Input() fullWidth = false;
   @Output() clickIconEvent = new EventEmitter<Event>();
+  @Output() clickInputEvent = new EventEmitter<Event>();
 
   getErrorMessage() {
-    if (!this.control.errors) return null;
+    if (!this.control.errors || !this.errorMessages) return null;
 
     const firstErrorKey = Object.keys(this.control.errors)[0];
 
@@ -44,5 +47,9 @@ export class LibInputComponent {
 
   onClickIcon() {
     this.clickIconEvent.emit();
+  }
+
+  onClickInput() {
+    this.clickInputEvent.emit();
   }
 }

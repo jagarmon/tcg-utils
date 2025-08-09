@@ -1,6 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { LibButtonComponent } from '../shared/library/lib-button/lib-button.component';
-import { LibInputComponent } from '../shared/library/lib-input/lib-input.component';
 import {
   FormControl,
   FormGroup,
@@ -11,12 +9,7 @@ import { FormService } from '../shared/library/utils/form.service';
 import { LibDropdownComponent } from '../shared/library/lib-dropdown/lib-dropdown.component';
 
 @Component({
-  imports: [
-    LibButtonComponent,
-    LibInputComponent,
-    ReactiveFormsModule,
-    LibDropdownComponent,
-  ],
+  imports: [ReactiveFormsModule, LibDropdownComponent],
   providers: [FormService],
   standalone: true,
   templateUrl: './collection.component.html',
