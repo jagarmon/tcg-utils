@@ -8,9 +8,15 @@ import {
   Validators,
 } from '@angular/forms';
 import { FormService } from '../shared/library/utils/form.service';
+import { LibDropdownComponent } from '../shared/library/lib-dropdown/lib-dropdown.component';
 
 @Component({
-  imports: [LibButtonComponent, LibInputComponent, ReactiveFormsModule],
+  imports: [
+    LibButtonComponent,
+    LibInputComponent,
+    ReactiveFormsModule,
+    LibDropdownComponent,
+  ],
   providers: [FormService],
   standalone: true,
   templateUrl: './collection.component.html',

@@ -16,4 +16,11 @@
     [required]="true"
     [errorMessages]="{ required: 'Please introduce a value' }" />
   <lib-button text="Enviar" [submit]="true"></lib-button>
+  <lib-dropdown
+    text="FirstName"
+    placeholder="Juan"
+    [control]="formService.convertToFormControl(form.get('firstName'))"
+    [required]="true"
+    [errorMessages]="{ required: 'Please introduce a value' }"
+    [suggestionList]="['Manolo', 'Juanma', 'Matías']"></lib-dropdown>
 </form>

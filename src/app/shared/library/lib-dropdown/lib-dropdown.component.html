@@ -1,0 +1,22 @@
+<div class="dropdown-container">
+  <lib-input
+    [id]="id"
+    [text]="text"
+    [placeholder]="placeholder"
+    [control]="control"
+    [required]="required"
+    [icon]="isDropdownOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
+    (clickIconEvent)="onClickArrow()"
+    [assistiveText]="assistiveText"
+    [errorMessages]="errorMessages"
+    [ariaLabel]="ariaLabel" />
+  @if (isDropdownOpen) {
+    <div class="suggestions-container">
+      @for (suggestion of suggestionList; track suggestion) {
+        <lib-button
+          [text]="suggestion"
+          (clickEvent)="onClickSuggestion(suggestion)" />
+      }
+    </div>
+  }
+</div>

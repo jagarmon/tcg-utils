@@ -21,7 +21,7 @@ export class LibInputComponent {
   @Input({ required: true }) text!: string;
   @Input() placeholder?: string = '';
   @Input() assistiveText?: string = '';
-  @Input() errorMessages: { [key: string]: string } = {};
+  @Input() errorMessages: Record<string, string> = {};
   @Input() required?: boolean = false;
   @Input() control: FormControl = new FormControl({
     value: undefined,

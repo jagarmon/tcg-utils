@@ -19,7 +19,7 @@ button {
   background-color: var(--primary-purple);
   color: var(--secondary-text-color);
 
-  &:hover {
+   &:hover {
     background-color: var(--secondary-purple);
   }
 
@@ -34,9 +34,15 @@ button {
     cursor: default;
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 1px solid var(--tertiary-purple);
   }
+
+  &.none{
+    background-color: transparent;
+    border: none;
+    color: var(--quaternary-purple);
+  } 
 }
 
 .button-container {
@@ -58,5 +64,7 @@ button {
   font-size: 16px;
   line-height: 24px;
 }
+
+
 
 

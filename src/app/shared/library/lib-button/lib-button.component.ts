@@ -21,7 +21,7 @@ export class LibButtonComponent {
   @Input() icon?: string;
   @Input() text?: string;
   @Input() size?: 'small' | 'standard' = 'standard';
-  @Input() color?: 'default' | 'error' = 'default';
+  @Input() color?: 'default' | 'error' | 'none' = 'default';
   @Input() disabled?: boolean;
   @Input() fullWidth?: boolean;
   @Input() submit? = false;

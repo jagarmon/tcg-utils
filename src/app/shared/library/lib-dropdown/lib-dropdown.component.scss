@@ -1,0 +1,56 @@
+
+@use '../styles/__index.scss';
+
+.base-class {
+  font-family: Verdana;
+  letter-spacing: 0.2px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.h1 {
+  @extend .base-class;
+  font-size: 32px;
+  line-height: 42px;
+}
+.h2 {
+  @extend .base-class;
+  font-size: 20px;
+  line-height: 28px;
+}
+.standard {
+  @extend .base-class;
+  font-size: 14px;
+  line-height: 24px;
+}
+.element {
+  @extend .base-class;
+  font-size: 14px;
+  line-height: 16px;
+}
+.helper {
+  @extend .base-class;
+  font-size: 12px;
+  line-height: 20px;
+}
+.small {
+  font-weight: 300;
+}
+.normal {
+  font-weight: 400;
+}
+.medium {
+  font-weight: 500;
+}
+.big {
+  font-weight: 800;
+}
+.error{
+  color: var(--error-text-color);
+}
+.default{
+  color: var(--primary-text-color);
+}
+.disabled{
+  color: var(--disabled-text-color)
+}
