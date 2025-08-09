@@ -10,14 +10,10 @@
       }">
       {{ control.invalid && control.touched ? 'dangerous' : 'info' }}
     </span>
-    <p
-      class="assistive-text"
-      [ngClass]="{
-        error: control.invalid && control.touched,
-      }">
-      {{
+    <lib-font
+      [text]="
         control.invalid && control.touched ? getErrorMessage() : assistiveText
-      }}
-    </p>
+      "
+      [color]="control.invalid && control.touched ? 'error' : 'default'" />
   </div>
 }
