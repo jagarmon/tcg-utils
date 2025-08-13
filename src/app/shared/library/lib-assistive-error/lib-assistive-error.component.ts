@@ -16,7 +16,7 @@ export class LibAssistiveErrorComponent {
   @Input()
   errorMessages?: Record<string, string>;
   @Input()
-  assistiveText = '';
+  assistiveText? = '';
 
   getErrorMessage() {
     if (!this.control.errors || !this.errorMessages) return '';

@@ -12,7 +12,9 @@
     </span>
     <lib-font
       [text]="
-        control.invalid && control.touched ? getErrorMessage() : assistiveText
+        control.invalid && control.touched
+          ? getErrorMessage()
+          : (assistiveText ?? '')
       "
       [color]="control.invalid && control.touched ? 'error' : 'default'" />
   </div>

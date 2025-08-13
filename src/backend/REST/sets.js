@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../database/db');
+const paginationUtils = require('../utils/pagination');
 
 router.get('/', (req, res) => {
-  db.all('SELECT * FROM sets', (err, rows) => {
+  const query = paginationUtils.getPaginatedQuery(
+    req.query.pageNum?.toString(),
+    req.query.pageSize?.toString()
+  );
+  db.all(query, (err, rows) => {
     if (err) return res.status(500).send(err.message);
     res.json(rows);
   });
