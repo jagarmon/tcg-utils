@@ -20,11 +20,7 @@ button {
   color: var(--secondary-text);
 
   &:hover {
-    background-color: var(--secondary);
-  }
-
-  &:active {
-    background-color: var(--secondary);
+    background-color: var(--primary);
   }
 
   &:disabled {
@@ -36,12 +32,6 @@ button {
 
   &:focus-visible {
     outline: 1px solid var(--blue);
-  }
-
-  &.none {
-    background-color: transparent;
-    border: none;
-    color: var(--primary-text);
   }
 }
 

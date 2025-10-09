@@ -6,11 +6,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { FormService } from '../shared/library/utils/form.service';
-import { LibDropdownComponent } from '../shared/library/lib-dropdown/lib-dropdown.component';
+import { LibModalComponent } from '../shared/library/lib-modal/lib-modal.component';
 import { LibButtonComponent } from '../shared/library/lib-button/lib-button.component';
 
 @Component({
-  imports: [ReactiveFormsModule, LibDropdownComponent, LibButtonComponent],
+  imports: [ReactiveFormsModule, LibModalComponent, LibButtonComponent],
   providers: [FormService],
   standalone: true,
   templateUrl: './collection.component.html',
@@ -18,12 +18,13 @@ import { LibButtonComponent } from '../shared/library/lib-button/lib-button.comp
 })
 export class CollectionComponent {
   formService = inject(FormService);
-  form: FormGroup = new FormGroup({
-    firstName: new FormControl('', [Validators.required]),
-    lastName: new FormControl('', [Validators.required]),
-  });
+  isModalOpen = false;
 
-  onSubmit(formm: FormGroup) {
-    console.log('Entro', formm.value);
+  onClickButton() {
+    this.isModalOpen = !this.isModalOpen;
+  }
+
+  onClickClose() {
+    this.isModalOpen = false;
   }
 }

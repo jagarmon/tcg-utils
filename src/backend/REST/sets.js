@@ -3,6 +3,15 @@ const router = express.Router();
 const db = require('../database/db');
 const paginationUtils = require('../utils/pagination');
 
+/*
+{
+  pageNum: number;
+  pageSize: number;
+  hasNext: boolean;
+  hasPrevious: boolean;
+  totalElements: number;
+}
+*/
 router.get('/', (req, res) => {
   const query = paginationUtils.getPaginatedQuery(
     req.query.pageNum?.toString(),
@@ -10,6 +19,7 @@ router.get('/', (req, res) => {
   );
   db.all(query, (err, rows) => {
     if (err) return res.status(500).send(err.message);
+
     res.json(rows);
   });
 });

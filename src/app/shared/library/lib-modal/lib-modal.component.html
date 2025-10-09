@@ -1,0 +1,17 @@
+@if (isOpen) {
+  <div class="modal-container">
+    <div class="modal">
+      <div class="header">
+        <lib-font variant="h1" text="Create set"></lib-font>
+        <lib-button icon="close" (clickEvent)="onClickClose()"></lib-button>
+      </div>
+      <div class="body">
+        <lib-input [required]="true" text="Name"></lib-input>
+        <lib-input text="Release date"></lib-input>
+      </div>
+      <div class="footer">
+        <lib-button text="Confirm"></lib-button>
+      </div>
+    </div>
+  </div>
+}
