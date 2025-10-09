@@ -1,25 +1,28 @@
-<div class="dropdown-container">
+<div class="dropdown-container" (focusout)="onFocusOut($event)" #container>
   <lib-input
     [id]="id"
     [text]="text"
     [placeholder]="placeholder"
     [control]="control"
     [required]="required"
-    [icon]="isDropdownOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
+    [icon]="isDropdownOpen ? 'arrow_drop_up' : 'arrow_drop_down'"
     (clickIconEvent)="onClickOpen()"
     [assistiveText]="assistiveText"
     [ariaLabel]="ariaLabel"
     [isReadOnly]="true"
     (clickInputEvent)="onClickOpen()" />
-  <div class="dropdown-container">
+  <div class="dropdown-elements">
     <lib-assistive-error
       [control]="control"
       [assistiveText]="assistiveText"
       [errorMessages]="errorMessages" />
     @if (isDropdownOpen) {
-      <div class="suggestions-container">
+      <div class="suggestions-container" id="suggestions">
         @for (suggestion of suggestionList; track suggestion) {
-          <button class="suggestion" (click)="onClickSuggestion(suggestion)">
+          <button
+            class="suggestion"
+            (click)="onClickSuggestion(suggestion)"
+            [id]="id + '-suggestion'">
             <lib-font [text]="suggestion" />
           </button>
         }

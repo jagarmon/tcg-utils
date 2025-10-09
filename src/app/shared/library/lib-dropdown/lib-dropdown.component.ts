@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LibInputComponent } from '../lib-input/lib-input.component';
 import { FormControl } from '@angular/forms';
@@ -40,6 +40,8 @@ export class LibDropdownComponent {
   @Input()
   required?: boolean;
 
+  @ViewChild('container', { static: false }) containerRef!: ElementRef;
+
   isDropdownOpen = false;
 
   onClickOpen() {
@@ -49,6 +51,13 @@ export class LibDropdownComponent {
   onClickSuggestion(suggestion: string) {
     this.control.setValue(suggestion);
     this.isDropdownOpen = false;
+  }
+
+  onFocusOut(event: FocusEvent) {
+    const relatedTarget = event.relatedTarget as HTMLElement;
+    if (!this.containerRef.nativeElement.contains(relatedTarget)) {
+      this.isDropdownOpen = false;
+    }
   }
 
   getErrorMessage() {

@@ -1,10 +1,12 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
- 
   <lib-dropdown
+    id="dropdown-id"
     text="FirstName"
     placeholder="Juan"
     [control]="formService.convertToFormControl(form.get('firstName'))"
     [required]="true"
     [errorMessages]="{ required: 'Please introduce a value' }"
     [suggestionList]="['Manolo', 'Juanma', 'Matías']"></lib-dropdown>
+
+  <lib-button text="Texto aaa"></lib-button>
 </form>

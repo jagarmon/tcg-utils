@@ -13,8 +13,8 @@
   width: 16.67px;
   height: 16.67px;
   font-size: 16.67px;
-  color: var(--primary-text-color);
+  color: var(--primary-text);
   &.error {
-    color: var(--error-text-color);
+    color: var(--error-text);
   }
 }

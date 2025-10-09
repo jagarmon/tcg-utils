@@ -7,9 +7,10 @@ import {
 } from '@angular/forms';
 import { FormService } from '../shared/library/utils/form.service';
 import { LibDropdownComponent } from '../shared/library/lib-dropdown/lib-dropdown.component';
+import { LibButtonComponent } from '../shared/library/lib-button/lib-button.component';
 
 @Component({
-  imports: [ReactiveFormsModule, LibDropdownComponent],
+  imports: [ReactiveFormsModule, LibDropdownComponent, LibButtonComponent],
   providers: [FormService],
   standalone: true,
   templateUrl: './collection.component.html',

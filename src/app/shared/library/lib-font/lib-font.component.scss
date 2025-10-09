@@ -1,8 +1,7 @@
-
 @use '../styles/__index.scss';
 
 .base-class {
-  font-family: Verdana;
+  font-family: 'Open Sans', sans-serif;
   letter-spacing: 0.2px;
   margin: 0;
   overflow: hidden;
@@ -23,7 +22,7 @@
   font-size: 14px;
   line-height: 24px;
 }
-.element {
+.input {
   @extend .base-class;
   font-size: 14px;
   line-height: 16px;
@@ -36,21 +35,24 @@
 .small {
   font-weight: 300;
 }
-.normal {
+.regular {
   font-weight: 400;
 }
 .medium {
   font-weight: 500;
 }
 .big {
+  font-weight: 600;
+}
+.extra {
   font-weight: 800;
 }
-.error{
-  color: var(--error-text-color);
+.error {
+  color: var(--error-text);
 }
-.default{
-  color: var(--primary-text-color);
+.default {
+  color: var(--primary-text);
 }
-.disabled{
-  color: var(--disabled-text-color)
+.disabled {
+  color: var(--primary-text);
 }

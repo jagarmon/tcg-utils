@@ -6,43 +6,43 @@ button {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  font-family: Verdana;
-  height: 48px;
+  font-family: 'Open Sans', sans-serif;
+  height: 50px;
   border: none;
   background: transparent;
   font-size: 16px;
   font-weight: 500;
-  border-radius: 30px;
+  border-radius: 12px;
   cursor: pointer;
   padding: 0 12px;
 
-  background-color: var(--primary-purple);
-  color: var(--secondary-text-color);
+  background-color: var(--primary70);
+  color: var(--secondary-text);
 
-   &:hover {
-    background-color: var(--secondary-purple);
+  &:hover {
+    background-color: var(--secondary);
   }
 
   &:active {
-    background-color: var(--secondary-purple);
+    background-color: var(--secondary);
   }
 
   &:disabled {
-    background-color: var(--disabled-background-color);
-    color: var(--disabled-text-color);
+    background-color: var(--disabled);
+    color: var(--primary-text);
     border: none;
     cursor: default;
   }
 
   &:focus-visible {
-    outline: 1px solid var(--tertiary-purple);
+    outline: 1px solid var(--blue);
   }
 
-  &.none{
+  &.none {
     background-color: transparent;
     border: none;
-    color: var(--quaternary-purple);
-  } 
+    color: var(--primary-text);
+  }
 }
 
 .button-container {
@@ -59,12 +59,8 @@ button {
   line-height: 20px;
 }
 
-.standard{
+.standard {
   height: 50px;
   font-size: 16px;
   line-height: 24px;
 }
-
-
-
-

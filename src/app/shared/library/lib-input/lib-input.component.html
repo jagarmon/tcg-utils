@@ -3,11 +3,12 @@
     <span>
       <lib-font
         [text]="text"
-        variant="element"
+        variant="input"
+        weight="medium"
         [color]="control.disabled ? 'disabled' : 'default'"></lib-font>
     </span>
     @if (required) {
-      <lib-font text="*" variant="element" color="error"></lib-font>
+      <lib-font text="*" variant="input" color="error"></lib-font>
     }
   </div>
   <div

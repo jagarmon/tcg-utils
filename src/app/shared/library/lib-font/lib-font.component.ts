@@ -14,7 +14,7 @@ export class LibFontComponent {
   @Input()
   color: 'default' | 'disabled' | 'error' = 'default';
   @Input()
-  variant: 'h1' | 'h2' | 'standard' | 'element' | 'helper' = 'standard';
+  variant: 'h1' | 'h2' | 'standard' | 'input' | 'helper' = 'standard';
   @Input()
-  weight: 'small' | 'normal' | 'medium' | 'big' = 'normal';
+  weight: 'small' | 'normal' | 'medium' | 'big' | 'extra' = 'normal';
 }
