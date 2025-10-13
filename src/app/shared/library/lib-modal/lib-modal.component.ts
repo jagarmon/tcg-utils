@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LibFontComponent } from '../lib-font/lib-font.component';
 import { LibButtonComponent } from '../lib-button/lib-button.component';
 import { LibInputComponent } from '../lib-input/lib-input.component';
+import { LibDropdownComponent } from '../lib-date-input/lib-date-input.component';
 
 @Component({
   standalone: true,
@@ -16,6 +17,7 @@ import { LibInputComponent } from '../lib-input/lib-input.component';
     LibFontComponent,
     LibButtonComponent,
     LibInputComponent,
+    LibDropdownComponent,
   ],
 })
 export class LibModalComponent {

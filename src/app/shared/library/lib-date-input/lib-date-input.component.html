@@ -1,0 +1,60 @@
+<div class="container" #container>
+  <lib-input
+    [id]="id"
+    [text]="text"
+    [placeholder]="placeholder"
+    [control]="control"
+    [required]="required"
+    (clickIconEvent)="onClickOpen()"
+    [assistiveText]="assistiveText"
+    [ariaLabel]="ariaLabel"
+    [isReadOnly]="true"
+    [isClickable]="true"
+    (clickInputEvent)="onClickOpen()" />
+  <div class="date-dropdown-elements">
+    <lib-assistive-error
+      [control]="control"
+      [assistiveText]="assistiveText"
+      [errorMessages]="errorMessages" />
+    @if (isDropdownOpen) {
+      <div class="date-dropdown" id="suggestions">
+        <div class="date-dropdown-header">
+          <button class="arrow-button" (click)="onClickArrowButton('left')">
+            <span class="material-symbols-outlined">arrow_left</span>
+          </button>
+          <lib-font
+            [text]="
+              monthArray[selectedMonthIndex()] + ' ' + selectedYear()
+            "></lib-font>
+          <button class="arrow-button" (click)="onClickArrowButton('right')">
+            <span class="material-symbols-outlined">arrow_right</span>
+          </button>
+        </div>
+        <table>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+          @for (week of selectedMonthDataSignal(); track $index) {
+            <tr>
+              @for (day of week; track trackBy($index, day)) {
+                <td>
+                  @if (day) {
+                    <button class="day-button" (click)="onClickDayButton(day)">
+                      {{ day }}
+                    </button>
+                  }
+                </td>
+              }
+            </tr>
+          }
+        </table>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,47 @@
+@use '../styles/__index.scss';
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 4px;
+  .date-dropdown-elements {
+    position: relative;
+  }
+  .date-dropdown {
+    border: 1px solid var(--primary-text);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--primary-background);
+    min-width: 230px;
+    min-height: 200px;
+    &-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .arrow-button {
+        background-color: transparent;
+        border: none;
+        width: fit-content;
+        cursor: pointer;
+      }
+    }
+    .day-button {
+      background-color: transparent;
+      border: none;
+      width: fit-content;
+      cursor: pointer;
+      &:focus-visible {
+        border: none;
+        outline: 1px solid var(--blue);
+      }
+      &:hover {
+        background-color: var(--secondary);
+      }
+    }
+  }
+}
