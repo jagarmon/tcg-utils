@@ -6,8 +6,10 @@
         <lib-button icon="close" (clickEvent)="onClickClose()"></lib-button>
       </div>
       <div class="body">
-        <lib-input [required]="true" text="Name"></lib-input>
-        <lib-date-input text="Release date"></lib-date-input>
+        <div class="inputs-container">
+          <lib-input [required]="true" text="Name"></lib-input>
+          <lib-date-input text="Release date"></lib-date-input>
+        </div>
       </div>
       <div class="footer">
         <lib-button text="Confirm"></lib-button>

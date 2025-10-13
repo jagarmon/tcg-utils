@@ -13,12 +13,13 @@
     flex-direction: column;
     z-index: 10;
     position: absolute;
+    padding: 12px;
     top: 0;
     width: 100%;
     box-sizing: border-box;
+    gap: 4px;
     background-color: var(--primary-background);
     min-width: 230px;
-    min-height: 200px;
     &-header {
       display: flex;
       flex-direction: row;
