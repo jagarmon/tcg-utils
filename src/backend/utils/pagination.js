@@ -1,4 +1,4 @@
-export const getPaginatedQuery = (pageNum, pageSize) => {
+const getPaginatedQuery = (pageNum, pageSize) => {
   const parsedPageNum = +(pageNum ?? 1);
   const parsedPageSize = +(pageSize ?? 5);
   const offset =
@@ -8,3 +8,5 @@ export const getPaginatedQuery = (pageNum, pageSize) => {
 
   return `SELECT * FROM sets LIMIT ${pageSize} OFFSET ${offset}`;
 };
+
+module.exports = { getPaginatedQuery };

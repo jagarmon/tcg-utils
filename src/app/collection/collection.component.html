@@ -1,2 +1,13 @@
 <lib-button text="New set" (clickEvent)="onClickButton()"></lib-button>
-<lib-modal [isOpen]="isModalOpen" (closeEvent)="onClickClose()"></lib-modal>
+<lib-modal
+  title="Create set"
+  [isOpen]="isModalOpen"
+  (closeEvent)="onClickClose()">
+  <div class="inputs-container">
+    <lib-input [required]="true" text="Name"></lib-input>
+    <lib-date-input text="Release date"></lib-date-input>
+    <div class="uploader-container">
+      <lib-image-uploader></lib-image-uploader>
+    </div>
+  </div>
+</lib-modal>

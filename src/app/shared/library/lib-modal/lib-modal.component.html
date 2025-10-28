@@ -2,14 +2,11 @@
   <div class="modal-container">
     <div class="modal">
       <div class="header">
-        <lib-font variant="h1" text="Create set"></lib-font>
+        <lib-font variant="h1" [text]="title"></lib-font>
         <lib-button icon="close" (clickEvent)="onClickClose()"></lib-button>
       </div>
       <div class="body">
-        <div class="inputs-container">
-          <lib-input [required]="true" text="Name"></lib-input>
-          <lib-date-input text="Release date"></lib-date-input>
-        </div>
+        <ng-content></ng-content>
       </div>
       <div class="footer">
         <lib-button text="Confirm"></lib-button>

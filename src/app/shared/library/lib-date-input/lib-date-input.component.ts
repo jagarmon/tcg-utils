@@ -18,7 +18,7 @@ import { signal, effect } from '@angular/core';
   templateUrl: './lib-date-input.component.html',
   styleUrl: './lib-date-input.component.scss',
 })
-export class LibDropdownComponent {
+export class LibDateInputComponent {
   @Input()
   id?: string;
   @Input({ required: true })
