@@ -1,7 +1,7 @@
-<lib-button text="New set" (clickEvent)="onClickButton()"></lib-button>
 <lib-modal
   title="Create set"
-  [isOpen]="isModalOpen"
+  [isOpen]="isOpen"
+  (submitEvent)="onClickSubmit()"
   (closeEvent)="onClickClose()">
   <div class="inputs-container">
     <lib-input [required]="true" text="Name"></lib-input>

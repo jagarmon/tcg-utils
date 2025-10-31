@@ -24,8 +24,13 @@ export class LibModalComponent {
   @Input()
   title!: string;
   @Output()
+  submitEvent = new EventEmitter<void>();
+  @Output()
   closeEvent = new EventEmitter<void>();
 
+  onClickSubmit() {
+    this.submitEvent.emit();
+  }
   onClickClose() {
     this.closeEvent.emit();
   }
