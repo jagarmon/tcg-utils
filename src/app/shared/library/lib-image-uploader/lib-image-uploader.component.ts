@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -14,7 +14,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   selector: 'lib-image-uploader',
   templateUrl: './lib-image-uploader.component.html',
   styleUrls: ['./lib-image-uploader.component.scss'],
-  imports: [CommonModule, LibFontComponent, ReactiveFormsModule],
+  imports: [LibFontComponent, ReactiveFormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LibImageUploaderComponent {

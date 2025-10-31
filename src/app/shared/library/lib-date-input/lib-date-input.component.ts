@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { LibInputComponent } from '../lib-input/lib-input.component';
 import { FormControl } from '@angular/forms';
 import { LibFontComponent } from '../lib-font/lib-font.component';
@@ -10,11 +10,10 @@ import { signal, effect } from '@angular/core';
   selector: 'lib-date-input',
   standalone: true,
   imports: [
-    CommonModule,
     LibInputComponent,
     LibFontComponent,
-    LibAssistiveErrorComponent,
-  ],
+    LibAssistiveErrorComponent
+],
   templateUrl: './lib-date-input.component.html',
   styleUrl: './lib-date-input.component.scss',
 })
