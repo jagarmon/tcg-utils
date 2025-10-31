@@ -1,6 +1,6 @@
 @use '../styles/__index.scss';
 
-.uploader-button {
+.image-uploader {
   border: none;
   display: flex;
   flex-direction: column;
@@ -8,13 +8,20 @@
   height: fit-content;
   width: fit-content;
   gap: 16px;
+  img {
+    width: 250px;
+    height: 250px;
+  }
+  input {
+    width: 250px;
+  }
   .content {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-width: 150px;
-    min-height: 150px;
+    width: 250px;
+    height: 250px;
     border-radius: 8px;
     border: 1px dashed var(--primary-text);
     .material-symbols-outlined {

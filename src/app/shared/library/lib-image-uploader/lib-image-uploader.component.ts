@@ -26,6 +26,22 @@ export class LibImageUploaderComponent {
   });
   @Output() keyDownEvent = new EventEmitter<KeyboardEvent>();
 
+  imageToDisplay: string | ArrayBuffer | null = null;
+
+  onChange(event: Event): void {
+    const element = (event.target as HTMLInputElement).files?.[0];
+    const reader = new FileReader();
+
+    if (element) {
+      reader.onload = _event => {
+        this.imageToDisplay = reader.result;
+      };
+
+      reader.readAsDataURL(element);
+    }
+    this.control.setValue(element);
+  }
+
   onClick(event: Event): void {
     this.clickEvent.emit(event);
   }

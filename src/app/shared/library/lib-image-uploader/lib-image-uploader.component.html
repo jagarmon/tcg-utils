@@ -1,7 +1,11 @@
-<div [id]="id" class="uploader-button">
+<div [id]="id" class="image-uploader">
   <div class="content">
-    <span class="material-symbols-outlined">drive_folder_upload</span>
-    <lib-font text="Upload file"></lib-font>
+    @if (!imageToDisplay) {
+      <span class="material-symbols-outlined">drive_folder_upload</span>
+      <lib-font text="Upload file"></lib-font>
+    } @else {
+      <img [src]="imageToDisplay" alt="uploaded image" />
+    }
   </div>
-  <input type="file" [formControl]="control" />
+  <input type="file" (change)="onChange($event)" />
 </div>
