@@ -44,5 +44,6 @@ INSERT INTO types (name) VALUES
     ('Zombie');
 
 INSERT INTO sets (name, image, release) VALUES
-  ('Age of Overlord', 'https://example.com/images/dragon-knight.png', '15/02/1998');
+  ('Age of Overlord', 'https://example.com/images/dragon-knight.png', '15/02/1998'),
+  ('Legends of Blue Eyes White Dragon', 'https://example.com/images/dragon-knight.png2', '15/02/1990');
  

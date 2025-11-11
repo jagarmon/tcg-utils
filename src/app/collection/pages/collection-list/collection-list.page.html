@@ -1,7 +1,7 @@
-{{setStore.sets()}} @for(set of setStore.sets(); track set.name){
-<p>{{set.name}}</p>
-}
-<!-- <lib-button text="New set" (clickEvent)="onClickButton()"></lib-button> -->
-
-<create-set-modal [isOpen]="isModalOpen" (closeEvent)="onClickClose()">
-</create-set-modal>
+<ul>
+  @for(set of setStore.sets(); track set.name){
+  <li><p>{{set.name}}</p></li>
+  }
+</ul>
+<lib-button text="New set" (clickEvent)="onClickButton()"></lib-button>
+<create-set-modal [isOpen]="isModalOpen" (closeEvent)="onClickClose()" />

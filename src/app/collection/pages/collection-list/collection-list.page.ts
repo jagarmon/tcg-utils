@@ -7,7 +7,7 @@ import { SetStore } from '../../../set/store/set.store';
 
 @Component({
   imports: [ReactiveFormsModule, LibButtonComponent, CreateSetModalComponent],
-  providers: [FormService, SetStore],
+  providers: [FormService],
   standalone: true,
   templateUrl: './collection-list.page.html',
   styleUrl: './collection-list.page.scss',

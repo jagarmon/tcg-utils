@@ -5,6 +5,7 @@ import { LibInputComponent } from '../../../shared/library/lib-input/lib-input.c
 import { LibDateInputComponent } from '../../../shared/library/lib-date-input/lib-date-input.component';
 import { LibImageUploaderComponent } from '../../../shared/library/lib-image-uploader/lib-image-uploader.component';
 import { FormService } from '../../../shared/library/utils/form.service';
+
 @Component({
   imports: [
     ReactiveFormsModule,
@@ -24,7 +25,7 @@ export class CreateSetModalComponent {
   @Input() mode: 'create' | 'edit' = 'create';
   @Output() closeEvent = new EventEmitter<void>();
 
-  formService = inject(FormService);
+  readonly formService = inject(FormService);
 
   onClickSubmit() {
     if (this.mode === 'create') {

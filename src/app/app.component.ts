@@ -5,7 +5,6 @@ import { SetStore } from './set/store/set.store';
 @Component({
   selector: 'tcg-utils-root',
   imports: [RouterOutlet],
-  providers: [SetStore],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

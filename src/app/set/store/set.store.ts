@@ -15,6 +15,7 @@ const initialState: SetState = {
 };
 
 export const SetStore = signalStore(
+  { providedIn: 'root' },
   withState(initialState),
   //withComputed(),
   withMethods((store, setService = inject(SetService)) => ({
@@ -22,7 +23,6 @@ export const SetStore = signalStore(
       patchState(store, { isLoading: true });
       const sets = await setService.getAll();
       patchState(store, { sets: sets, isLoading: false });
-      console.log('SETS > ', sets);
     },
   }))
 );
