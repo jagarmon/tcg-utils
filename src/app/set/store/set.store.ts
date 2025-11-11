@@ -5,12 +5,14 @@ import { inject } from '@angular/core';
 interface SetState {
   sets: Set[];
   isLoading: boolean;
+  error?: string;
   filter: { query: string; order: 'asc' | 'desc' };
 }
 
 const initialState: SetState = {
   sets: [],
   isLoading: false,
+  error: undefined,
   filter: { query: '', order: 'asc' },
 };
 
@@ -21,8 +23,29 @@ export const SetStore = signalStore(
   withMethods((store, setService = inject(SetService)) => ({
     async loadAll() {
       patchState(store, { isLoading: true });
-      const sets = await setService.getAll();
-      patchState(store, { sets: sets, isLoading: false });
+      try {
+        const sets = await setService.getAll();
+        patchState(store, {
+          sets: sets,
+          isLoading: false,
+          error: undefined,
+        });
+      } catch (_err) {
+        patchState(store, { isLoading: false, error: 'Error loading sets' });
+      }
+    },
+    async create(newSet: Set) {
+      patchState(store, { isLoading: true });
+      try {
+        await setService.create(newSet);
+        patchState(store, {
+          sets: [...store.sets(), newSet],
+          isLoading: false,
+          error: undefined,
+        });
+      } catch (_err) {
+        patchState(store, { isLoading: false, error: 'Error creating set' });
+      }
     },
   }))
 );

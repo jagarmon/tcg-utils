@@ -13,4 +13,9 @@ export class SetService {
       this.http.get<Set[]>(`${environment.apiUrl}/${this.baseUrl}`)
     );
   }
+  create(set: Set) {
+    return firstValueFrom(
+      this.http.post<Set>(`${environment.apiUrl}/${this.baseUrl}`, set)
+    );
+  }
 }

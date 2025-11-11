@@ -5,6 +5,7 @@ import { LibInputComponent } from '../../../shared/library/lib-input/lib-input.c
 import { LibDateInputComponent } from '../../../shared/library/lib-date-input/lib-date-input.component';
 import { LibImageUploaderComponent } from '../../../shared/library/lib-image-uploader/lib-image-uploader.component';
 import { FormService } from '../../../shared/library/utils/form.service';
+import { SetStore } from '../../store/set.store';
 
 @Component({
   imports: [
@@ -26,10 +27,16 @@ export class CreateSetModalComponent {
   @Output() closeEvent = new EventEmitter<void>();
 
   readonly formService = inject(FormService);
+  readonly setStore = inject(SetStore);
 
   onClickSubmit() {
     if (this.mode === 'create') {
       console.log('create');
+      this.setStore.create({
+        name: 'Test name',
+        release: '1/1/1',
+        image: 'img',
+      });
     } else {
       console.log('edit');
     }

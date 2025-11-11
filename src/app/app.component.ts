@@ -10,7 +10,7 @@ import { SetStore } from './set/store/set.store';
 })
 export class AppComponent implements OnInit {
   title = 'tcg-utils';
-  setStore = inject(SetStore);
+  readonly setStore = inject(SetStore);
   ngOnInit(): void {
     this.setStore.loadAll();
   }
