@@ -1,0 +1,16 @@
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Set } from '../models/set.model';
+import { firstValueFrom } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
+@Injectable({ providedIn: 'root' })
+export class SetService {
+  private http = inject(HttpClient);
+  private baseUrl = 'sets';
+  getAll() {
+    return firstValueFrom(
+      this.http.get<Set[]>(`${environment.apiUrl}/${this.baseUrl}`)
+    );
+  }
+}

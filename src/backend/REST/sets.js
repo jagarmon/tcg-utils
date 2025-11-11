@@ -13,13 +13,12 @@ const paginationUtils = require('../utils/pagination');
 }
 */
 router.get('/', (req, res) => {
-  const query = paginationUtils.getPaginatedQuery(
-    req.query.pageNum?.toString(),
-    req.query.pageSize?.toString()
-  );
-  db.all(query, (err, rows) => {
+  // const query = paginationUtils.getPaginatedQuery(
+  //   req.query.pageNum?.toString(),
+  //   req.query.pageSize?.toString()
+  // );
+  db.all('SELECT * FROM sets', (err, rows) => {
     if (err) return res.status(500).send(err.message);
-
     res.json(rows);
   });
 });

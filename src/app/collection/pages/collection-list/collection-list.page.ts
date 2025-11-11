@@ -3,16 +3,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormService } from '../../../shared/library/utils/form.service';
 import { LibButtonComponent } from '../../../shared/library/lib-button/lib-button.component';
 import { CreateSetModalComponent } from '../../../set/components/set-modal/set-modal.component';
+import { SetStore } from '../../../set/store/set.store';
 
 @Component({
   imports: [ReactiveFormsModule, LibButtonComponent, CreateSetModalComponent],
-  providers: [FormService],
+  providers: [FormService, SetStore],
   standalone: true,
   templateUrl: './collection-list.page.html',
   styleUrl: './collection-list.page.scss',
 })
 export class CollectionComponent {
-  formService = inject(FormService);
+  readonly formService = inject(FormService);
+  readonly setStore = inject(SetStore);
   isModalOpen = false;
 
   onClickButton() {
