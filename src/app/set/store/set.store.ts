@@ -22,7 +22,7 @@ export const SetStore = signalStore(
       patchState(store, { isLoading: true });
       const sets = await setService.getAll();
       patchState(store, { sets: sets, isLoading: false });
-      console.log('SETEO >-', sets);
+      console.log('SETS > ', sets);
     },
   }))
 );
