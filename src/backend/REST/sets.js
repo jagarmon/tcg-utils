@@ -35,4 +35,19 @@ router.post('/', (req, res) => {
   });
 });
 
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  const idNum = Number(req.params.id);
+  if (!Number.isInteger(idNum) || idNum <= 0) {
+    return res.status(400).send('invalid ID');
+  }
+  const query = `
+    DELETE FROM sets WHERE id=?
+  `;
+  db.run(query, [id], function (err) {
+    if (err) return res.status(500).send(err.message);
+    res.json({ id: this.lastID });
+  });
+});
+
 module.exports = router;

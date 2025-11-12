@@ -1,4 +1,3 @@
-
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -39,7 +38,7 @@ export class LibImageUploaderComponent {
 
       reader.readAsDataURL(element);
     }
-    this.control.setValue(element);
+    this.control.setValue(element?.name);
   }
 
   onClick(event: Event): void {

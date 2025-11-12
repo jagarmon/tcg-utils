@@ -27,7 +27,7 @@ export class LibInputComponent {
   @Input() required?: boolean = false;
   @Input() control: FormControl = new FormControl({
     value: undefined,
-    disabled: false,
+    disabled: true,
   });
   @Input() ariaLabel?: string;
   @Input() icon?: string;

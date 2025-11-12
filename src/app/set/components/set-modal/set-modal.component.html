@@ -4,10 +4,22 @@
   (submitEvent)="onClickSubmit()"
   (closeEvent)="onClickClose()">
   <div class="inputs-container">
-    <lib-input [required]="true" text="Name"></lib-input>
-    <lib-date-input text="Release date"></lib-date-input>
+    <lib-input
+      [required]="true"
+      text="Name"
+      [control]="setForm.controls['name']"
+      [errorMessages]="{
+        required: 'Required field',
+      }"></lib-input>
+    <lib-date-input
+      text="Release date"
+      [control]="setForm.controls['release']"
+      [errorMessages]="{
+        required: 'Required field',
+      }"></lib-date-input>
     <div class="uploader-container">
-      <lib-image-uploader></lib-image-uploader>
+      <lib-image-uploader
+        [control]="setForm.controls['image']"></lib-image-uploader>
     </div>
   </div>
 </lib-modal>

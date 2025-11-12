@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import { LibFontComponent } from '../lib-font/lib-font.component';
 import { LibAssistiveErrorComponent } from '../lib-assistive-error/lib-assistive-error.component';
 import { signal, effect } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'lib-date-input',
@@ -12,8 +13,9 @@ import { signal, effect } from '@angular/core';
   imports: [
     LibInputComponent,
     LibFontComponent,
-    LibAssistiveErrorComponent
-],
+    LibAssistiveErrorComponent,
+    CommonModule,
+  ],
   templateUrl: './lib-date-input.component.html',
   styleUrl: './lib-date-input.component.scss',
 })

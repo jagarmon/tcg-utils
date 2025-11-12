@@ -1,8 +1,11 @@
-<div class="container" #container>
+<div
+  class="container"
+  [ngStyle]="{ gap: isDropdownOpen ? '8px' : 0 }"
+  #container>
   <lib-input
     [id]="id"
     [text]="text"
-    [placeholder]="placeholder"
+    [placeholder]="'dd/mm/yyyy'"
     [control]="control"
     [required]="required"
     (clickIconEvent)="onClickOpen()"
