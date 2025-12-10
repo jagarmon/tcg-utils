@@ -26,13 +26,13 @@ export class CollectionComponent {
     this.setStore.nameIdList().map(i => ({ displayName: i.name, item: i.id }))
   );
 
-  onClickListElement(event?: number) {
-    console.log('Click -> ', event);
+  onClickListElement(id: number) {
+    console.log('Click -> ', id);
   }
 
-  onDeleteListElement(event?: number) {
-    console.log('Delete -> ', event);
-    this.setStore.create({ name: 'a', release: 'r', image: 'i' });
+  onDeleteListElement(id: number) {
+    console.log('Delete -> ', id);
+    this.setStore.delete(id);
   }
   onClickButton() {
     this.isModalOpen = !this.isModalOpen;

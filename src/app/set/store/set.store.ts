@@ -8,7 +8,12 @@ import {
 import { Set, SetDTO } from '../models/set.model';
 import { SetService } from '../services/set.service';
 import { computed, inject } from '@angular/core';
-import { addEntity, setEntities, withEntities } from '@ngrx/signals/entities';
+import {
+  addEntity,
+  removeEntity,
+  setEntities,
+  withEntities,
+} from '@ngrx/signals/entities';
 
 interface SetState {
   isLoading: boolean;
@@ -58,6 +63,19 @@ export const SetStore = signalStore(
         });
       } catch (_err) {
         patchState(store, { isLoading: false, error: 'Error creating set' });
+      }
+    },
+    async delete(id: number) {
+      patchState(store, { isLoading: true });
+      try {
+        await setService.delete(id);
+        patchState(store, removeEntity(id));
+        patchState(store, {
+          isLoading: false,
+          error: undefined,
+        });
+      } catch (_err) {
+        patchState(store, { isLoading: false, error: 'Error deleting set' });
       }
     },
   }))

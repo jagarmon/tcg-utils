@@ -22,8 +22,8 @@ interface listItem<T> {
 })
 export class LibListComponent<T> {
   @Input() list: listItem<T>[] = [];
-  @Output() clickEvent = new EventEmitter<T | undefined>();
-  @Output() deleteEvent = new EventEmitter<T | undefined>();
+  @Output() clickEvent = new EventEmitter<T>();
+  @Output() deleteEvent = new EventEmitter<T>();
 
   onClickElement(item: listItem<T>) {
     this.clickEvent.emit(item.item);

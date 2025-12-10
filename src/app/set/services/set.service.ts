@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Set, SetDTO } from '../models/set.model';
 import { firstValueFrom } from 'rxjs';
@@ -16,6 +16,11 @@ export class SetService {
   create(set: Set) {
     return firstValueFrom(
       this.http.post<SetDTO>(`${environment.apiUrl}/${this.baseUrl}`, set)
+    );
+  }
+  delete(id: number) {
+    return firstValueFrom(
+      this.http.delete<SetDTO>(`${environment.apiUrl}/${this.baseUrl}/${id}`)
     );
   }
 }
