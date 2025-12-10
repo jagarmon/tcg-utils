@@ -20,8 +20,8 @@ export class LibButtonComponent {
   @Input() ariaLabel?: string;
   @Input() icon?: string;
   @Input() text?: string;
-  @Input() size?: 'small' | 'standard' = 'standard';
-  @Input() color?: 'default' | 'error' | 'none' = 'default';
+  @Input() size?: 'mini' | 'small' | 'standard' = 'standard';
+  @Input() color?: 'default' | 'element' | 'error' | 'none' = 'default';
   @Input() disabled?: boolean;
   @Input() fullWidth?: boolean;
   @Input() submit? = false;

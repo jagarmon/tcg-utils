@@ -33,6 +33,31 @@ button {
   &:focus-visible {
     outline: 1px solid var(--blue);
   }
+
+  &.small {
+    height: 40px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0;
+  }
+
+  &.mini {
+    height: 30px;
+    font-size: 10px;
+    line-height: 16px;
+    padding: 0 6px;
+  }
+
+  &.standard {
+    height: 50px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &.element {
+    background-color: var(--secondary);
+    color: var(--tertiary-text);
+  }
 }
 
 .button-container {
@@ -41,16 +66,4 @@ button {
   justify-content: center;
   flex-direction: row;
   gap: 8px;
-}
-
-.small {
-  height: 40px;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.standard {
-  height: 50px;
-  font-size: 16px;
-  line-height: 24px;
 }

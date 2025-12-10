@@ -3,3 +3,10 @@ export interface Set {
   release: string;
   image: string;
 }
+
+export interface SetDTO {
+  id: number;
+  name: string;
+  release: string;
+  image: string;
+}

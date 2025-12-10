@@ -6,13 +6,13 @@
   [type]="submit ? 'submit' : 'button'"
   [attr.aria-label]="ariaLabel"
   (click)="onClick($event)"
-  (keydown)="onKeyDown($event)"
->
+  (keydown)="onKeyDown($event)">
   <div class="button-container">
-     @if(icon){
-    <span class="material-symbols-outlined">{{ icon }}</span>
-    } @if(text){
-    {{ text }}
+    @if (icon) {
+      <span class="material-symbols-outlined">{{ icon }}</span>
+    }
+    @if (text) {
+      {{ text }}
     }
   </div>
 </button>

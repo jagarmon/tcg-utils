@@ -1,0 +1,14 @@
+<ul class="list-container">
+  @for (item of list; track item) {
+    <li class="list-element">
+      <button class="element-content" (click)="onClickElement(item)">
+        <lib-font variant="input" [text]="item.displayName"></lib-font>
+      </button>
+      <lib-button
+        icon="delete"
+        size="mini"
+        color="element"
+        (click)="onClickDelete(item)"></lib-button>
+    </li>
+  }
+</ul>

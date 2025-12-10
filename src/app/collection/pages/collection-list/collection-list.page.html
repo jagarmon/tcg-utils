@@ -1,7 +1,8 @@
-<ul>
-  @for(set of setStore.sets(); track set.name){
-  <li><p>{{set.name}}</p></li>
-  }
-</ul>
+<div class="container">
+  <lib-list
+    [list]="setStore.nameIdList()"
+    (clickEvent)="onClickListElement($event)"
+    (deleteEvent)="onDeleteListElement($event)"></lib-list>
+</div>
 <lib-button text="New set" (clickEvent)="onClickButton()"></lib-button>
 <create-set-modal [isOpen]="isModalOpen" (closeEvent)="onClickClose()" />

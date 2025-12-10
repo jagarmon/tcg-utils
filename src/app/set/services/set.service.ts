@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Set } from '../models/set.model';
+import { Set, SetDTO } from '../models/set.model';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -10,12 +10,12 @@ export class SetService {
   private baseUrl = 'sets';
   getAll() {
     return firstValueFrom(
-      this.http.get<Set[]>(`${environment.apiUrl}/${this.baseUrl}`)
+      this.http.get<SetDTO[]>(`${environment.apiUrl}/${this.baseUrl}`)
     );
   }
   create(set: Set) {
     return firstValueFrom(
-      this.http.post<Set>(`${environment.apiUrl}/${this.baseUrl}`, set)
+      this.http.post<SetDTO>(`${environment.apiUrl}/${this.baseUrl}`, set)
     );
   }
 }
