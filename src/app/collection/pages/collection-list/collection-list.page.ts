@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormService } from '../../../shared/library/utils/form.service';
 import { LibButtonComponent } from '../../../shared/library/lib-button/lib-button.component';
@@ -22,6 +22,9 @@ export class CollectionComponent {
   readonly formService = inject(FormService);
   readonly setStore = inject(SetStore);
   isModalOpen = false;
+  listItems = computed(() =>
+    this.setStore.nameIdList().map(i => ({ displayName: i.name, item: i.id }))
+  );
 
   onClickListElement(event?: number) {
     console.log('Click -> ', event);
@@ -29,6 +32,7 @@ export class CollectionComponent {
 
   onDeleteListElement(event?: number) {
     console.log('Delete -> ', event);
+    this.setStore.create({ name: 'a', release: 'r', image: 'i' });
   }
   onClickButton() {
     this.isModalOpen = !this.isModalOpen;

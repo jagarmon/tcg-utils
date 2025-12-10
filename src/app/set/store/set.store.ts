@@ -29,7 +29,7 @@ export const SetStore = signalStore(
   withComputed(({ entities }) => ({
     nameIdList: computed(() =>
       entities().map(set => {
-        return { displayName: set.name, item: set.id };
+        return { name: set.name, id: set.id };
       })
     ),
   })),
@@ -51,7 +51,7 @@ export const SetStore = signalStore(
       patchState(store, { isLoading: true });
       try {
         const newSet = await setService.create(set);
-        patchState(store, addEntity(newSet));
+        patchState(store, addEntity({ ...set, id: newSet.id }));
         patchState(store, {
           isLoading: false,
           error: undefined,

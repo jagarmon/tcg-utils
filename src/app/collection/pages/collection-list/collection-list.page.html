@@ -1,6 +1,6 @@
 <div class="container">
   <lib-list
-    [list]="setStore.nameIdList()"
+    [list]="this.listItems()"
     (clickEvent)="onClickListElement($event)"
     (deleteEvent)="onDeleteListElement($event)"></lib-list>
 </div>
