@@ -12,16 +12,19 @@ import {
   addEntity,
   removeEntity,
   setEntities,
+  updateEntity,
   withEntities,
 } from '@ngrx/signals/entities';
 
 interface SetState {
   isLoading: boolean;
+  selectedId?: number;
   error?: string;
   filter: { query: string; order: 'asc' | 'desc' };
 }
 
 const initialState: SetState = {
+  selectedId: undefined,
   isLoading: false,
   error: undefined,
   filter: { query: '', order: 'asc' },
@@ -39,6 +42,12 @@ export const SetStore = signalStore(
     ),
   })),
   withMethods((store, setService = inject(SetService)) => ({
+    emptySelectedId() {
+      patchState(store, { selectedId: undefined });
+    },
+    setSelectedId(id: number) {
+      patchState(store, { selectedId: id });
+    },
     async loadAll() {
       patchState(store, { isLoading: true });
       try {
@@ -63,6 +72,19 @@ export const SetStore = signalStore(
         });
       } catch (_err) {
         patchState(store, { isLoading: false, error: 'Error creating set' });
+      }
+    },
+    async edit(id: number, set: Partial<Set>) {
+      patchState(store, { isLoading: true });
+      try {
+        await setService.edit(id, set);
+        patchState(store, updateEntity({ id: id, changes: set }));
+        patchState(store, {
+          isLoading: false,
+          error: undefined,
+        });
+      } catch (_err) {
+        patchState(store, { isLoading: false, error: 'Error updating set' });
       }
     },
     async delete(id: number) {

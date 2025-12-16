@@ -1,4 +1,11 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import {
+  Component,
+  effect,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -21,12 +28,12 @@ import { SetStore } from '../../store/set.store';
     LibImageUploaderComponent,
   ],
   providers: [FormService],
-  selector: 'create-set-modal',
+  selector: 'set-modal',
   standalone: true,
   templateUrl: './set-modal.component.html',
   styleUrl: './set-modal.component.scss',
 })
-export class CreateSetModalComponent {
+export class SetModalComponent {
   @Input() isOpen = false;
   @Input() mode: 'create' | 'edit' = 'create';
   @Output() closeEvent = new EventEmitter<void>();
@@ -35,7 +42,7 @@ export class CreateSetModalComponent {
   readonly setStore = inject(SetStore);
 
   setForm = new FormGroup({
-    name: new FormControl(undefined, [Validators.required]),
+    name: new FormControl('', [Validators.required]),
     release: new FormControl('', Validators.required),
     image: new FormControl(''),
   });
@@ -43,6 +50,7 @@ export class CreateSetModalComponent {
   onClickSubmit() {
     this.setForm.markAllAsTouched();
     if (!this.setForm.valid) return;
+    const selectedSetId = this.setStore.selectedId?.();
 
     if (this.mode === 'create') {
       this.setStore.create({
@@ -50,13 +58,33 @@ export class CreateSetModalComponent {
         release: this.setForm.value.release!,
         image: this.setForm.value.image ?? '',
       });
-    } else {
-      console.log('edit');
+    } else if (selectedSetId) {
+      this.setStore.edit(selectedSetId, {
+        name: this.setForm.value.name!,
+        release: this.setForm.value.release!,
+        image: this.setForm.value.image ?? '',
+      });
     }
     this.onClickClose();
   }
+
   onClickClose() {
     this.setForm.reset();
+    this.setStore.emptySelectedId();
     this.closeEvent.emit();
+  }
+
+  constructor() {
+    effect(() => {
+      const selectedSetId = this.setStore.selectedId?.();
+      if (selectedSetId && this.mode === 'edit') {
+        const setData = this.setStore.entityMap()[selectedSetId];
+        this.setForm.patchValue({
+          name: setData.name ?? '',
+          release: setData.release ?? '',
+          image: setData.image ?? '',
+        });
+      }
+    });
   }
 }

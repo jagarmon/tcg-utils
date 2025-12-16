@@ -35,6 +35,24 @@ router.post('/', (req, res) => {
   });
 });
 
+router.put('/:id', (req, res) => {
+  const { id } = req.params;
+  const idNum = Number(req.params.id);
+  if (!Number.isInteger(idNum) || idNum <= 0) {
+    return res.status(400).send('invalid ID');
+  }
+  const { name, image, release } = req.body;
+  const query = `
+    UPDATE sets 
+    SET name=?, image=?, release=?
+    WHERE id=?
+  `;
+  db.run(query, [name, image, release, id], function (err) {
+    if (err) return res.status(500).send(err.message);
+    res.json({ id: this.lastID });
+  });
+});
+
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
   const idNum = Number(req.params.id);

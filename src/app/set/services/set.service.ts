@@ -18,6 +18,11 @@ export class SetService {
       this.http.post<SetDTO>(`${environment.apiUrl}/${this.baseUrl}`, set)
     );
   }
+  edit(id: number, set: Partial<Set>) {
+    return firstValueFrom(
+      this.http.put<SetDTO>(`${environment.apiUrl}/${this.baseUrl}/${id}`, set)
+    );
+  }
   delete(id: number) {
     return firstValueFrom(
       this.http.delete<SetDTO>(`${environment.apiUrl}/${this.baseUrl}/${id}`)
